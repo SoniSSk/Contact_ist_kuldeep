@@ -14,36 +14,29 @@ export const AddContact = (props: any) => {
   const number = queryParams.get("number");
   const type = queryParams.get("type");
   const isWhatsapp = queryParams.get("isWhatsapp");
-  // console.log( name, number, type, isWhatsapp, "query params")
   const { contactInfo } = props;
   const navigate = useNavigate();
   const types = {
-    defaultValue: "Personal",
+    defaultValue: "personal",
     options: [
       {
         label: "Personal",
-        value: "Personal",
+        value: "personal",
       },
       {
         label: "Office",
-        value: "Office",
+        value: "office",
       },
     ],
   };
   console.log(contactInfo, "contact info");
-  const [slectedType, setSelectedType] = useState(types.options[0].value);
-  //   const [addContact, setAddContact] = useState({
-  //     name: contactInfo?.name || "",
-  //     phone: contactInfo?.phone || "",
-  //     type: contactInfo?.type || "Personal",
-  //     isWhatsapp: contactInfo?.isWhatsapp,
-  //     profilePicture: "",
-  //   });
-
+  const [slectedType, setSelectedType] = useState('office');
+  console.log(slectedType, "slectedTypemfsfkjdsfsfskjfdskjnfdskjnfjn");
   const [addContact, setAddContact] = useState({
+    id: id || props.count,
     name: name || "",
     number: number || "",
-    type: type || "Personal",
+    type: type || slectedType,
     isWhatsapp: isWhatsapp == "true" ? true : false,
     profilePicture: "",
   });
@@ -55,11 +48,13 @@ export const AddContact = (props: any) => {
     {
       label: "Save Contact ",
       onClick: () => {
-        if (name && number) {
+        props.setCount((props.count + 1));
+        if (name && id) {
           console.log("kul");
           const objIndex = contacts.findIndex(
-            (item: any) => item.number == addContact.number
+            (item: any) => item.id == addContact.id
           );
+          console.log(objIndex, "objIndex");
           contacts[objIndex] = addContact;
           setContacts([...contacts]);
           navigate(-1);
@@ -84,11 +79,12 @@ export const AddContact = (props: any) => {
     }
   };
   const [contacts, setContacts] = useState(handleclick());
-  console.log(contacts, "contacts kuldeep soni ");
   useEffect(() => {
     localStorage.setItem("contact", JSON.stringify(contacts ? contacts : []));
   }, [contacts]);
-  console.log(contacts, "contacts kuldeep soni ");
+  useEffect(() => {
+    setAddContact({ ...addContact, type: slectedType })
+  }, [slectedType]);
   return (
     <div className={modalBoxStyles.container}>
       <div className={modalBoxStyles.image_container}>
@@ -135,10 +131,10 @@ export const AddContact = (props: any) => {
       </div>
       <div className={modalBoxStyles.container_each_row}>
         <div className={modalBoxStyles.text}>Whatsapp Status</div>
-        <div style={{ display: "flex" }}>
-          <div style={{ display: "flex", columnGap: "10px", width: "50%" }}>
+        <div className={modalBoxStyles.box_new_container}>
+          <div className={modalBoxStyles.box_new_container_inside}>
             <img
-              style={{ width: "16px" }}
+              className={modalBoxStyles.image_size_new}
               src={addContact.isWhatsapp ? radioChecked : radioUnChecked}
               onClick={() =>
                 setAddContact({
@@ -147,13 +143,11 @@ export const AddContact = (props: any) => {
                 })
               }
             />
-            <div className={modalBoxStyles.text} style={{ marginTop: "5px" }}>
-              Whatsapp
-            </div>
+            <div className={modalBoxStyles.text_swa}>Whatsapp</div>
           </div>
-          <div style={{ display: "flex", columnGap: "10px", width: "50%" }}>
+          <div className={modalBoxStyles.box_new_container_inside}>
             <img
-              style={{ width: "16px" }}
+              className={modalBoxStyles.image_size_new}
               src={addContact.isWhatsapp ? radioUnChecked : radioChecked}
               onClick={() =>
                 setAddContact({
@@ -162,16 +156,11 @@ export const AddContact = (props: any) => {
                 })
               }
             />
-            <div className={modalBoxStyles.text} style={{ marginTop: "5px" }}>
-              Not Whatsapp
-            </div>
+            <div className={modalBoxStyles.text_swa}>Not Whatsapp</div>
           </div>
         </div>
       </div>
-      <div
-        className={modalBoxStyles.container_each_row}
-        style={{ marginTop: "50px", marginRight: "-20px" }}
-      >
+      <div className={modalBoxStyles.container_each_row_inside}>
         <ButtonsWrapper buttonConfig={buttonConfig} />
       </div>
     </div>

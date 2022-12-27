@@ -21,3 +21,26 @@
 .container_each_row{
     margin:20px 0px 20px 0px;
 }
+.container_each_row_inside{
+    margin:20px 0px 20px 0px;
+    margin-top: 50px;
+    margin-right: -20px;
+}
+
+.box_new_container{
+    display: flex;
+}
+.box_new_container_inside{
+    display: flex;
+     column-gap: 10px; 
+     width: 50%;
+}
+.image_size_new{
+    width:16px
+}
+.text_swa{
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #6b6b6b;
+    margin-top:5px;
+}

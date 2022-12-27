@@ -14,7 +14,7 @@ export const CardWrapper = (props: any) => {
       label: "Edit ",
       onClick: () =>
         navigate(
-          "/edit-contact?name=" +
+          "/edit-contact?id="+contactDetails.id+"&name=" +
             contactDetails.name +
             "&number=" +
             contactDetails.number +
@@ -41,23 +41,28 @@ export const CardWrapper = (props: any) => {
     {
       label: "Yes",
       onClick: () => {
-        const aa = contacts.filter(
-          (contact: any) => contact.number !== contactDetails.number
-        );
-        console.log(aa, "aa");
-        setContacts(aa);
-        setCancelWarning(false);
+        console.log(contacts.length, "sfgiudskjfhsj");
+        // contacts.length === 1 ? setContacts([]) : null;
+        if (contacts.length === 1) {
+            setContacts([]);
+            localStorage.removeItem("contact");
+          setCancelWarning(false);
+        } else {
+          const aa = contacts.filter(
+            (contact: any) => contact.id !== contactDetails.id
+          );
+          console.log(aa, "aa");
+          setContacts(aa);
+          setCancelWarning(false);
+        }
       },
       variant: "contained",
     },
   ];
   const [openedCancelWarning, setCancelWarning] = useState(false);
-  console.log(contacts, "contacts kuldeep soni new ");
   useEffect(() => {
     localStorage.setItem("contact", JSON.stringify(contacts ? contacts : []));
   }, [contacts]);
-  console.log(contacts, "contacts kuldeep soni ");
-  console.log(contactDetails, "contact details");
   return (
     <div className={cardWrapperStyle.container}>
       <div className={cardWrapperStyle.image_position}>

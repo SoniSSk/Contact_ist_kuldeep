@@ -9,3 +9,9 @@
 .image_box{
     width:  340px;
 }
+.logo{
+    font-size: 25px;
+    color: white;
+    margin-top: 17px;
+    font-family: 'Lato';
+}

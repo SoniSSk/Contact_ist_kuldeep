@@ -6,10 +6,18 @@ import Typography from "@mui/material/Typography";
 import Modal from "@material-ui/core/Modal";
 import ModalStyle from "../Modal/ModalWrapperStyle.module.css";
 import { useState, useEffect } from "react";
-import { ButtonsWrapper } from '../buttons-wrapper/ButtonsWrapper';
+import { ButtonsWrapper } from "../buttons-wrapper/ButtonsWrapper";
 
 export const ModalWrapper = (props: any) => {
-  const { opened, setOpened, title, width, feildList, ComponentInfo, buttonConfig } = props;
+  const {
+    opened,
+    setOpened,
+    title,
+    width,
+    feildList,
+    ComponentInfo,
+    buttonConfig,
+  } = props;
 
   const style = {
     position: "absolute" as "absolute",
@@ -36,19 +44,12 @@ export const ModalWrapper = (props: any) => {
   }, [opened]);
   console.log(feildList, "feildList");
   return (
-    <div style={{ outline: "none" }}>
+    <div className={ModalStyle.box_new}>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <div className={ModalStyle.popUpBox}>
             <div className={ModalStyle.text_header}>{title}</div>
-            <div
-              style={{
-                width: "16px",
-                height: "16px",
-                display: "flex",
-                outline: "none",
-              }}
-            >
+            <div className={ModalStyle.text_header_new}>
               <img
                 id="ModalWrapperImageTwo"
                 onClick={handleClose}
@@ -61,9 +62,9 @@ export const ModalWrapper = (props: any) => {
             <img className={ModalStyle.line} src={linePath} />
           </div>
           <ComponentInfo feild={feildList} />
-		  <div className={ModalStyle.button_container}>
-						<ButtonsWrapper buttonConfig={buttonConfig} />
-					</div>
+          <div className={ModalStyle.button_container}>
+            <ButtonsWrapper buttonConfig={buttonConfig} />
+          </div>
         </Box>
       </Modal>
     </div>

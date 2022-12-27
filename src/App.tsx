@@ -9,7 +9,7 @@ import { AddContact } from "./components/ModalBox/AddContact";
 import { CardWrapper } from "./components/Card/CardWrapper";
 
 export const App = () => {
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState(1);
   return (
     <>
       <BrowserRouter basename="/">
@@ -18,8 +18,8 @@ export const App = () => {
             path="/"
             element={
               <>
-                <HeaderWrapper />
-                <HomePage  />
+                <HeaderWrapper  label="Contact List"/>
+                <HomePage count={count} setCount={setCount}/>
               </>
             }
           />
@@ -29,9 +29,9 @@ export const App = () => {
             path="/add-contact"
             element={
               <>
-                <HeaderWrapper />
+                <HeaderWrapper label="Add Contact"/>
 
-                <AddContact  />
+                <AddContact count={count} setCount={setCount} />
               </>
             }
           />
@@ -42,8 +42,8 @@ export const App = () => {
             path="/edit-contact"
             element={
               <>
-                <HeaderWrapper />
-                <AddContact />
+                <HeaderWrapper label="Edit Contact"/>
+                <AddContact count={count} setCount={setCount}/>
               </>
             }
           />

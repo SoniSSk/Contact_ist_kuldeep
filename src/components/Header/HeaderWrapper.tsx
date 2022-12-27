@@ -5,7 +5,7 @@ import { AddContact } from "../ModalBox/AddContact";
 import { FullScreenDialog } from "../ModalBox/ModalBox";
 import { useNavigate } from "react-router-dom";
 import { ButtonsWrapper } from "../buttons-wrapper/ButtonsWrapper";
-export const HeaderWrapper = () => {
+export const HeaderWrapper = (props:any) => {
   const buttonConfig = [
     {
       label: "Add Contact",
@@ -17,8 +17,9 @@ export const HeaderWrapper = () => {
     <>
       {" "}
       <div className={container.container}>
-        <img className={container.image_box} src={logo} />
-        <div style={{ width:'35%' , marginTop:'13px'}}>
+        {/* <img className={container.image_box} src={logo} /> */}
+        <div className={container.logo}>{props.label}</div>
+        <div style={{ width:'46.5%' , marginTop:'13px'}}>
         <ButtonsWrapper buttonConfig={buttonConfig} />
       </div>
       </div>

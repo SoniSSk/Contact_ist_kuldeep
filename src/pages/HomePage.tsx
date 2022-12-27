@@ -10,26 +10,21 @@ import { CardWrapper } from "../components/Card/CardWrapper";
 import { Contacts } from "@material-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { ButtonsWrapper } from "../components/buttons-wrapper/ButtonsWrapper";
+import HomePagerStyle from "../pages/HomePageStyle.module.css";
 
-export const HomePage = () => {
+export const HomePage = (props: any) => {
   const handleclick = () => {
     let list = localStorage.getItem("contact");
     console.log(list);
     if (list) {
       return JSON.parse(list);
     } else {
-      return [
-        // {
-        //     name: "Rahul",
-        //     number: "1234567890",
-        //     type: "Personal",
-        //     isWhatsapp: true,
-        //     profilePicture: 'profile',
-        // }
-      ];
+      return [];
     }
   };
+
   const navigate = useNavigate();
+
   const buttonConfig = [
     {
       label: "Add Contact",
@@ -37,7 +32,9 @@ export const HomePage = () => {
       variant: "contained",
     },
   ];
+
   const [contacts, setContacts] = useState(handleclick());
+
   function getWindowDimensions() {
     const { innerWidth: widths, innerHeight: height } = window;
     return {
@@ -45,31 +42,32 @@ export const HomePage = () => {
       height,
     };
   }
-  useEffect(() => {
-    contacts.sort((a:any, b:any) => {
-        let fa = a.name.toLowerCase(),
-            fb = b.name.toLowerCase();
-    
-        if (fa < fb) {
-            return -1;
-        }
-        if (fa > fb) {
-            return 1;
-        }
-        return 0;
-    });
-    setContacts([...contacts]);
-    
-  },[contacts]);
+
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
+
   useEffect(() => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    contacts.sort((a: any, b: any) => {
+      let fa = a.name.toLowerCase(),
+        fb = b.name.toLowerCase();
+      if (fa < fb) {
+        return -1;
+      }
+      if (fa > fb) {
+        return 1;
+      }
+      return 0;
+    });
+    setContacts([...contacts]);
   }, []);
   return (
     <div>
@@ -102,17 +100,15 @@ export const HomePage = () => {
             }}
           >
             <div>No Contacts Saved</div>
-            <div style={{ marginTop: "20px", marginLeft: "0px" }}>
+            <div className={HomePagerStyle.container}>
               <ButtonsWrapper buttonConfig={buttonConfig} />
             </div>
           </div>
         )}
       </div>
-      <div style={{ border: "1px solid black", height: "20px", width: "100%" }}>
+      <div className={HomePagerStyle.container_footer}>
         {" "}
-        <div style={{ float: "right", paddingRight: "20px" }}>
-          Kuldeep Soni Swapnil
-        </div>
+        <div className={HomePagerStyle.footer}>Kuldeep Soni Swapnil</div>
       </div>
     </div>
   );

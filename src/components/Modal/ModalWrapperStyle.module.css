@@ -102,3 +102,12 @@
     right: 50px;
     top: 332px;
 }
+.box_new{
+	outline: none;
+}
+.text_header_new{
+	width: 16px;
+	height:16px;
+	display: flex;
+	outline: none;
+}
