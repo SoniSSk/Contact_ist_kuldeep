@@ -1,0 +1,38 @@
+.css-6hp17o-MuiList-root-MuiMenu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    outline: 0;
+    /* height: 115px; */
+    padding: 10px;
+    row-gap: 5px;
+    overflow: auto;
+}
+
+
+.CustomSelectImonitorCloseImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.CustomSelectTextColorActive {
+    color: #2964DC;
+}
+
+.css-1elei02-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+    background-color: none;
+}
+
+.MenuItemContainer {
+    /* display: none;
+    position: absolute; */
+    
+}
+

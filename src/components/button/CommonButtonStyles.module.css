@@ -1,0 +1,118 @@
+.button {
+	width: 180px;
+	height: 34px;
+	min-width: 180px;
+	width: auto;
+	white-space: nowrap;
+	padding: 0px 30px !important;
+	background: #ffffff;
+	/* border: 1px solid #2964dc !important; */
+	border-radius: 6px !important;
+	margin-right: 20px !important;
+	border-radius: 6px;
+	text-transform: unset !important;
+}
+
+.buttonContainer {
+	display: flex;
+	justify-content: flex-end;
+	bottom: 0;
+	right: 0;
+	color: #3c3c3c;
+}
+.primaryButton {
+	background-color: #336fe3;
+}
+.selectedButton {
+	border: 1px solid #56b036 !important;
+	justify-content: left !important;
+	background-color: #f8fff5 !important;
+}
+
+.imageStyles {
+	width: 22px;
+	height: 18px;
+	margin-right: 5px;
+}
+.button_un_colored {
+	border: 1px solid #2964dc;
+	border-radius: 6px;
+	height: 35px;
+	width: 140px;
+	text-transform: none;
+	justify-content: center;
+	line-height: 1.75;
+	margin: 49px 30px 30px 20px;
+	text-align: center;
+	color: white;
+	font-family: 'Lato';
+	font-size: 16px !important;
+	margin-left: 40px;
+	padding: 0px 30px !important;
+	width: auto;
+}
+.button_un_colored:hover {
+	box-shadow: 0px 0px 0px 1px #2964dc;
+	width: 140px;
+}
+.button_colored {
+	border: 1px solid #2964dc;
+	border-radius: 6px;
+	height: 35px;
+	width: 140px;
+	text-transform: none;
+	justify-content: center;
+	line-height: 1.75;
+	margin: 49px 0px 30px 0px;
+	text-align: center;
+	color: white;
+	font-family: 'Lato';
+	font-size: 16px !important;
+	background-color: #2964dc;
+	padding: 0px 30px !important;
+	width: auto;
+}
+.button_colored:hover {
+	background-color: #2964dc;
+	box-shadow: 0px 0px 0px 1px #2964dc;
+}
+.button_inner_colored {
+	background: none;
+	border: none;
+	width: 120px;
+	text-align: center;
+	height: 35px;
+	color: white;
+	font-size: 16px;
+}
+.button_inner_colored:hover {
+	color: white;
+}
+.button_inner {
+	background: none;
+	border: none;
+	color: #3c3c3c;
+	font-weight: 400;
+	width: 120px;
+	text-align: center;
+	height: 35px;
+	font-size: 16px;
+}
+.unselectedbutton {
+	border: 1px solid #bbbbbb !important;
+	justify-content: left !important;
+}
+.selectedButton_img_green {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.selectedButton_img_tick {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+}
+.container_button{
+	display: flex;
+	column-gap: 3px;
+}

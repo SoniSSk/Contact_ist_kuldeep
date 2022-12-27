@@ -1,0 +1,23 @@
+.container{  
+    margin: 100px 350px 50px 350px;
+    width: 50%;
+}
+.image_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0px 0px 20px 0px; */
+}
+.image_size{
+    width: 125px;
+    height: 125px;
+    border-radius: 30px;
+}
+.text{
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #6b6b6b;
+}
+.container_each_row{
+    margin:20px 0px 20px 0px;
+}

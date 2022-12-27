@@ -1,0 +1,16 @@
+.searchBar {
+	flex-grow: 1;
+	width: 100%;
+	/* margin-right: 12px; */
+}
+.searchField {
+	width: 100%;
+}
+.label {
+	font-size: 12px;
+	margin-bottom: 5px;
+	color: #6b6b6b;
+}
+.MuiInputBase-input-MuiOutlinedInput-input{
+	border:none !important;
+}
