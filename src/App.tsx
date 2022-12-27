@@ -19,7 +19,7 @@ export const App = () => {
             element={
               <>
                 <HeaderWrapper />
-                <HomePage count={count} setCount={setCount} />
+                <HomePage  />
               </>
             }
           />
@@ -31,7 +31,7 @@ export const App = () => {
               <>
                 <HeaderWrapper />
 
-                <AddContact count={count} setCount={setCount} />
+                <AddContact  />
               </>
             }
           />
@@ -43,7 +43,7 @@ export const App = () => {
             element={
               <>
                 <HeaderWrapper />
-                <AddContact count={count} setCount={setCount} />
+                <AddContact />
               </>
             }
           />
